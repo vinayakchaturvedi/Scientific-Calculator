@@ -1,6 +1,6 @@
 ---
 - name: Copy jar file to remoter server
-  hosts: remoteserver
+  hosts: server
   tasks:
     - copy:
         src: ./target/ScientificCalculator-1.0-SNAPSHOT.jar
