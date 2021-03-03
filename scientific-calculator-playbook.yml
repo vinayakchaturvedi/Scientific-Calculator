@@ -11,6 +11,8 @@
     - name: Push image to docker hub
       shell:
         cmd: docker push vinayak96/scientific_calculator:latest
+    - name: Delete image from Jenkins_Host
+        cmd: docker rmi vinayak96/scientific_calculator:latest
 
 - name: Pull the image in product host and create and execute the container
   hosts: Production_Host
@@ -20,4 +22,4 @@
         cmd: docker login -u vinayak96 -p root12345
     - name: Pull and execute container
       shell:
-        cmd: docker run -it --name prod_calc vinayak96/scientific_calculator
+        cmd: docker pull vinayak96/scientific_calculator
