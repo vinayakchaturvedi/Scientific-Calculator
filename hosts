@@ -1,2 +1,5 @@
-[server]
+[Jenkins_Host]
+172.16.129.38 ansible_user=vinayak
+
+[Production_Host]
 172.16.129.38 ansible_user=vinayak

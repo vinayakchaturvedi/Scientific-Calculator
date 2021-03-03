@@ -1,7 +1,10 @@
 ---
 - name: Creating Docker image and pushing to docker hub
-  hosts: server
+  hosts: Jenkins_Host
   tasks:
+    - name: Docker login
+      shell:
+        cmd: docker login -u vinayak96 -p root12345
     - name: Creating a docker container
       shell:
         cmd: docker build /var/lib/jenkins/workspace/Scientific\ Calculator/ -t vinayak96/scientific_calculator:latest
@@ -9,3 +12,12 @@
       shell:
         cmd: docker push vinayak96/scientific_calculator:latest
 
+- name: Pull the image in product host and create and execute the container
+  hosts: Production_Host
+  tasks:
+    - name: Docker login
+        shell:
+          cmd: docker login -u vinayak96 -p root12345
+    -name: Pull and execute container
+      shell:
+        cmd: docker run -it --name prod_calc vinayak96/scientific_calculator
