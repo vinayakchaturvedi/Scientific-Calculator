@@ -1,7 +1,11 @@
 ---
-- name: Copy jar file to remoter server
+- name: Creating Docker image and pushing to docker hub
   hosts: server
   tasks:
-    - copy:
-        src: ./target/ScientificCalculator-1.0-SNAPSHOT.jar
-        dest: ~/
+    - name: Creating a docker container
+      shell:
+        cmd: docker build /var/lib/jenkins/workspace/Scientific\ Calculator/ -t vinayak96/scientific_calculator:latest
+    - name: Push image to docker hub
+      shell:
+        cmd: docker push vinayak96/scientific_calculator:latest
+
