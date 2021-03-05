@@ -29,7 +29,7 @@
         cmd: docker rm prod_calc
     - name: Remove old image
       shell:
-        cmd: docker rmi vinayak96/scientific_calculator
+        cmd: docker rmi vinayak96/scientific_calculator:latest
     - name: Pull image
       shell:
         cmd: docker pull vinayak96/scientific_calculator
