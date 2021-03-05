@@ -5,7 +5,7 @@
     - name: Docker login
       shell:
         cmd: docker login -u vinayak96 -p root12345
-    - name: Creating a docker container
+    - name: Creating a docker image
       shell:
         cmd: docker build /var/lib/jenkins/workspace/Scientific\ Calculator/ -t vinayak96/scientific_calculator:latest
     - name: Push image to docker hub
@@ -14,6 +14,9 @@
     - name: Delete image from Jenkins_Host
       shell:
         cmd: docker rmi vinayak96/scientific_calculator:latest
+    - name: Logout
+      shell:
+        cmd: docker logout
 
 - name: Pull the image in product host and create and execute the container
   hosts: Production_Host
@@ -21,6 +24,9 @@
     - name: Docker login
       shell:
         cmd: docker login -u vinayak96 -p root12345
-    - name: Pull and execute container
+    - name: Pull image
       shell:
         cmd: docker pull vinayak96/scientific_calculator
+    - name: Logout
+      shell:
+        cmd: docker logout
