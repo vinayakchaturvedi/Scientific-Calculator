@@ -24,12 +24,6 @@
     - name: Docker login
       shell:
         cmd: docker login -u vinayak96 -p root12345
-    - name: Remove old container
-      shell:
-        cmd: docker rm prod_calc
-    - name: Remove old image
-      shell:
-        cmd: docker rmi vinayak96/scientific_calculator:latest
     - name: Pull image
       shell:
         cmd: docker pull vinayak96/scientific_calculator
