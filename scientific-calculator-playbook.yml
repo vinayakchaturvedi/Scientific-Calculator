@@ -29,7 +29,7 @@
         cmd: docker pull vinayak96/scientific_calculator:latest
     - name: Create Container
       shell:
-        cmd: docker create --name prod_calc vinayak96/scientific_calculator:latest
+        cmd: docker create -it --name prod_calc vinayak96/scientific_calculator:latest
     - name: Logout
       shell:
         cmd: docker logout
