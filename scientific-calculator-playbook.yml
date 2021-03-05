@@ -26,7 +26,7 @@
         cmd: docker login -u vinayak96 -p root12345
     - name: Pull the image
       shell:
-        cmd: docker pull vinayak96/scientific_calculator
+        cmd: docker pull vinayak96/scientific_calculator:latest
     - name: Create Container
       shell:
         cmd: docker create --name prod_calc vinayak96/scientific_calculator:latest
