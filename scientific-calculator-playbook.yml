@@ -4,7 +4,7 @@
   tasks:
     - name: Remove unused Images
       shell:
-        cmd: docker system prune -f
+        cmd: docker image prune -f
     - name: Docker login
       shell:
         cmd: docker login
