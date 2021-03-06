@@ -7,7 +7,7 @@
         cmd: docker system prune -f
     - name: Docker login
       shell:
-        cmd: docker login -u vinayak96 -p root12345
+        cmd: docker login
     - name: Pulling the Image
       shell:
         cmd: docker pull vinayak96/scientific_calculator:latest
