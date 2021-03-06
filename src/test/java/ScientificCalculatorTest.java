@@ -53,7 +53,7 @@ public class ScientificCalculatorTest {
         InputStream in = new ByteArrayInputStream("4\n2".getBytes());
         System.setIn(in);
         ScientificCalculator.handlePower(new Scanner(System.in));
-        Assert.assertEquals("Enter the base number: Enter the power: 4^2 = 16.0\n", outContent.toString());
+        Assert.assertEquals("Enter the base number: Enter the power: Power function: 4^2 = 16.0\n", outContent.toString());
     }
 
     @Test
@@ -85,6 +85,6 @@ public class ScientificCalculatorTest {
         InputStream in = new ByteArrayInputStream("4\n4".getBytes());
         System.setIn(in);
         ScientificCalculator.handlePower(new Scanner(System.in));
-        Assert.assertNotEquals("Enter the base number: Enter the power: 4^2 = 16.0\n", outContent.toString());
+        Assert.assertNotEquals("Enter the base number: Enter the power: Power function: 4^4 = 16.0\n", outContent.toString());
     }
 }

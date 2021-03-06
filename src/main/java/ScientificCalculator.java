@@ -1,6 +1,12 @@
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Scanner;
 
 public class ScientificCalculator {
+
+    private static final Logger LOGGER = LogManager.getLogger(ScientificCalculator.class);
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -38,7 +44,9 @@ public class ScientificCalculator {
     public static void handleSquareRoot(Scanner sc) {
         System.out.print("Enter the number: ");
         int number = sc.nextInt();
-        System.out.println("Square root of " + number + " is: " + Math.sqrt(number));
+        double result = Math.sqrt(number);
+        System.out.println("Square root of " + number + " is: " + result);
+        LOGGER.info("Square root of " + number + " is: " + result);
     }
 
     public static void handleFactorial(Scanner sc) {
@@ -49,12 +57,15 @@ public class ScientificCalculator {
             factorial = factorial * i++;
         }
         System.out.println("Factorial of " + number + " is: " + factorial);
+        LOGGER.info("Factorial of " + number + " is: " + factorial);
     }
 
     public static void handleLogarithm(Scanner sc) {
         System.out.print("Enter the number: ");
         int number = sc.nextInt();
-        System.out.println("Natural Logarithmic value of " + number + " is: " + Math.log(number));
+        double result = Math.log(number);
+        System.out.println("Natural Logarithmic value of " + number + " is: " + result);
+        LOGGER.info("Natural Logarithmic value of " + number + " is: " + result);
     }
 
     public static void handlePower(Scanner sc) {
@@ -62,7 +73,9 @@ public class ScientificCalculator {
         int number = sc.nextInt();
         System.out.print("Enter the power: ");
         int power = sc.nextInt();
-        System.out.println(number + "^" + power + " = " + Math.pow(number, power));
+        double result = Math.pow(number, power);
+        System.out.println("Power function: " + number + "^" + power + " = " + result);
+        LOGGER.info("Performing Power function: " + number + "^" + power + " = " + result);
     }
 
 }
