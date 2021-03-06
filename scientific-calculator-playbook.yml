@@ -1,35 +1,22 @@
 ---
-- name: Creating Docker image and pushing to docker hub
-  hosts: Jenkins_Host
-  tasks:
-    - name: Docker login
-      shell:
-        cmd: docker login -u vinayak96 -p root12345
-    - name: Creating a docker image
-      shell:
-        cmd: docker build /var/lib/jenkins/workspace/Scientific\ Calculator/ -t vinayak96/scientific_calculator:latest
-    - name: Push image to docker hub
-      shell:
-        cmd: docker push vinayak96/scientific_calculator:latest
-    - name: Delete image from Jenkins_Host
-      shell:
-        cmd: docker rmi vinayak96/scientific_calculator:latest
-    - name: Logout
-      shell:
-        cmd: docker logout
-
-- name: Pull the image in product host and create and execute the container
+- name: Pull the image in production host and create the container
   hosts: Production_Host
   tasks:
     - name: Docker login
       shell:
         cmd: docker login -u vinayak96 -p root12345
-    - name: Pull the image
+    - name: Pulling the Image
       shell:
         cmd: docker pull vinayak96/scientific_calculator:latest
-    - name: Create Container
+    - name: Removing old Container
+      shell:
+        cmd: docker rm prod_calc
+    - name: Creating new Container
       shell:
         cmd: docker create -it --name prod_calc vinayak96/scientific_calculator:latest
-    - name: Logout
+    - name: Removing Image
+      shell:
+        cmd: docker rmi vinayak96/scientific_calculator:latest
+    - name: Docker Logout
       shell:
         cmd: docker logout
