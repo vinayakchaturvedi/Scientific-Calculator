@@ -17,6 +17,3 @@
     - name: Creating new Container
       shell:
         cmd: docker create -it --name prod_calc vinayak96/scientific_calculator:latest
-    - name: Docker Logout
-      shell:
-        cmd: docker logout
