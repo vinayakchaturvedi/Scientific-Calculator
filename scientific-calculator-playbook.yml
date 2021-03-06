@@ -2,9 +2,6 @@
 - name: Pull the image in production host and create the container
   hosts: Production_Host
   tasks:
-    - name: Remove unused Images
-      shell:
-        cmd: docker image prune -f
     - name: Docker login
       shell:
         cmd: docker login
@@ -17,3 +14,6 @@
     - name: Creating new Container
       shell:
         cmd: docker create -it --name prod_calc vinayak96/scientific_calculator:latest
+    - name: Remove unused Images
+      shell:
+        cmd: docker image prune -f
