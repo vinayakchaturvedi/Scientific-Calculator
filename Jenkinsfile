@@ -48,7 +48,7 @@ pipeline {
 
         stage ('Deploy Code to Production Host') {
             steps {
-                ansiblePlaybook installation: 'Ansible', playbook: 'scientific-calculator-playbook.yml'
+                ansiblePlaybook installation: 'Ansible', playbook: './ansible/scientific-calculator-playbook.yml'
             }
         }
     }
