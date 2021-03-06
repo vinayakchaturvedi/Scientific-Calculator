@@ -35,13 +35,13 @@ public class ScientificCalculator {
         }
     }
 
-    private static void handleSquareRoot(Scanner sc) {
+    public static void handleSquareRoot(Scanner sc) {
         System.out.print("Enter the number: ");
         int number = sc.nextInt();
         System.out.println("Square root of " + number + " is: " + Math.sqrt(number));
     }
 
-    private static void handleFactorial(Scanner sc) {
+    public static void handleFactorial(Scanner sc) {
         System.out.print("Enter the number: ");
         int number = sc.nextInt(), i = 1;
         long factorial = 1;
@@ -51,13 +51,13 @@ public class ScientificCalculator {
         System.out.println("Factorial of " + number + " is: " + factorial);
     }
 
-    private static void handleLogarithm(Scanner sc) {
+    public static void handleLogarithm(Scanner sc) {
         System.out.print("Enter the number: ");
         int number = sc.nextInt();
         System.out.println("Natural Logarithmic value of " + number + " is: " + Math.log(number));
     }
 
-    private static void handlePower(Scanner sc) {
+    public static void handlePower(Scanner sc) {
         System.out.print("Enter the base number: ");
         int number = sc.nextInt();
         System.out.print("Enter the power: ");
