@@ -46,7 +46,7 @@ public class ScientificCalculator {
         int number = sc.nextInt();
         double result = Math.sqrt(number);
         System.out.println("Square root of " + number + " is: " + result);
-        LOGGER.info("Square root of " + number + " is: " + result);
+        LOGGER.info("SQUARE_ROOT - Input:" + number + " - Output:" + result);
     }
 
     public static void handleFactorial(Scanner sc) {
@@ -57,7 +57,7 @@ public class ScientificCalculator {
             factorial = factorial * i++;
         }
         System.out.println("Factorial of " + number + " is: " + factorial);
-        LOGGER.info("Factorial of " + number + " is: " + factorial);
+        LOGGER.info("FACTORIAL - Input:" + number + " - Output:" + factorial);
     }
 
     public static void handleLogarithm(Scanner sc) {
@@ -65,7 +65,7 @@ public class ScientificCalculator {
         int number = sc.nextInt();
         double result = Math.log(number);
         System.out.println("Natural Logarithmic value of " + number + " is: " + result);
-        LOGGER.info("Natural Logarithmic value of " + number + " is: " + result);
+        LOGGER.info("LOGARITHM - Input:" + number + " - Output:" + result);
     }
 
     public static void handlePower(Scanner sc) {
@@ -75,7 +75,7 @@ public class ScientificCalculator {
         int power = sc.nextInt();
         double result = Math.pow(number, power);
         System.out.println("Power function: " + number + "^" + power + " = " + result);
-        LOGGER.info("Performing Power function: " + number + "^" + power + " = " + result);
+        LOGGER.info("POWER_FUNCTION - Input:" + number + "^" + power + " - Output:" + result);
     }
 
 }

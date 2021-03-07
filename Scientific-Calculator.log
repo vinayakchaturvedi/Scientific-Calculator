@@ -1,0 +1,6 @@
+06/Mar/2021:22:00:53 377 [ScientificCalculator.java] [INFO] ScientificCalculator SQUARE_ROOT - Input:4 - Output:2
+07/Mar/2021:02:10:53 377 [ScientificCalculator.java] [INFO] ScientificCalculator FACTORIAL - Input:4 - Output:24
+07/Mar/2021:17:00:07 905 [ScientificCalculator.java] [INFO] ScientificCalculator SQUARE_ROOT - Input:9 - Output:3.0
+07/Mar/2021:17:00:13 885 [ScientificCalculator.java] [INFO] ScientificCalculator FACTORIAL - Input:3 - Output:6
+07/Mar/2021:17:00:19 367 [ScientificCalculator.java] [INFO] ScientificCalculator LOGARITHM - Input:10 - Output:2.302585092994046
+07/Mar/2021:17:00:24 949 [ScientificCalculator.java] [INFO] ScientificCalculator POWER_FUNCTION - Input:5^2 - Output:25.0
