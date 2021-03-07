@@ -11,9 +11,10 @@
     - name: Removing old Container
       shell:
         cmd: docker rm prod_calc
+      ignore_errors: yes
     - name: Creating new Container
       shell:
-        cmd: docker create -it --name prod_calc vinayak96/scientific_calculator:latest
+        cmd: docker create -it -v /home/vinayak/IdeaProjects/ScientificCalculator/Scientific-Calculator.log:/Scientific-Calculator.log --name prod_calc vinayak96/scientific_calculator:latest
     - name: Remove unused Images
       shell:
         cmd: docker image prune -f
