@@ -35,6 +35,8 @@ public class ScientificCalculator {
                     case 4:
                         handlePower(sc);
                         break;
+                    default:
+                        System.out.println("Invalid choice !!! please provide proper input");
                 }
                 System.out.println("====================================================");
                 System.out.print(message);
