@@ -19,7 +19,7 @@ pipeline {
                 }
         }
 
-        stage('Building image') {
+        stage('Building Docker Image') {
           steps{
             script {
               dockerImage = docker.build registry + ":${env.BUILD_NUMBER}"
@@ -28,7 +28,7 @@ pipeline {
           }
         }
 
-        stage('Deploy Image') {
+        stage('Push Docker Image to DockerHub') {
               steps{
                 script {
                   docker.withRegistry( '', registryCredential ) {
@@ -39,14 +39,14 @@ pipeline {
               }
         }
 
-        stage('Remove Unused docker image') {
+        stage('Remove Unused docker images') {
           steps{
             sh "docker rmi $registry:${env.BUILD_NUMBER}"
             sh "docker rmi $registry:latest"
           }
         }
 
-        stage ('Deploy Code to Production Host') {
+        stage ('Deploy Code to Host') {
             steps {
                 ansiblePlaybook installation: 'Ansible', playbook: 'scientific-calculator-playbook.yml'
             }
