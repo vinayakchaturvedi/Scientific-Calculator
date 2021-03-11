@@ -1,20 +1,17 @@
 ---
-- name: Pull the image in production host and create the container
+- name: Pull the Scientific Calculator image from docker hub in production/dev/qa/staging host and create the container on top of it.
   hosts: Production_Host
   tasks:
-    - name: Docker login
-      shell:
-        cmd: docker login
-    - name: Pulling the Image
+    - name: Pulling the Scientific Calculator Image
       shell:
         cmd: docker pull vinayak96/scientific_calculator:latest
-    - name: Removing old Container
+    - name: Removing previous container.
       shell:
         cmd: docker rm prod_calc
       ignore_errors: yes
-    - name: Creating new Container
+    - name: Creating new Container using the pulled image
       shell:
         cmd: docker create -it -v /home/vinayak/IdeaProjects/ScientificCalculator/Scientific-Calculator.log:/Scientific-Calculator.log --name prod_calc vinayak96/scientific_calculator:latest
-    - name: Remove unused Images
+    - name: Remove unused and unncessary Images
       shell:
         cmd: docker image prune -f
