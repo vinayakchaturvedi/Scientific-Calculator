@@ -10,6 +10,7 @@ public class ScientificCalculator {
 
     public static void main(String[] args) {
         try {
+            ScientificCalculator scientificCalculator = new ScientificCalculator();
             Scanner sc = new Scanner(System.in);
             String message = "Select the appropriate option from the following list: \n" +
                     "1. Square root\n" +
@@ -24,16 +25,26 @@ public class ScientificCalculator {
                 System.out.println("====================================================");
                 switch (operation) {
                     case 1:
-                        handleSquareRoot(sc);
+                        System.out.print("Enter the number: ");
+                        double numberSq = sc.nextDouble();
+                        System.out.println("Square root of " + numberSq + " is: " + scientificCalculator.handleSquareRoot(numberSq));
                         break;
                     case 2:
-                        handleFactorial(sc);
+                        System.out.print("Enter the number: ");
+                        int numberFact = sc.nextInt();
+                        System.out.println("Factorial of " + numberFact + " is: " + scientificCalculator.handleFactorial(numberFact));
                         break;
                     case 3:
-                        handleLogarithm(sc);
+                        System.out.print("Enter the number: ");
+                        double numberLog = sc.nextDouble();
+                        System.out.println("Natural Logarithmic value of " + numberLog + " is: " + scientificCalculator.handleLogarithm(numberLog));
                         break;
                     case 4:
-                        handlePower(sc);
+                        System.out.print("Enter the base number: ");
+                        double number = sc.nextDouble();
+                        System.out.print("Enter the power: ");
+                        double power = sc.nextDouble();
+                        System.out.println("Power function: " + number + "^" + power + " = " + scientificCalculator.handlePower(number, power));
                         break;
                     default:
                         System.out.println("Invalid choice !!! please provide proper input");
@@ -48,41 +59,32 @@ public class ScientificCalculator {
         }
     }
 
-    public static void handleSquareRoot(Scanner sc) {
-        System.out.print("Enter the number: ");
-        double number = sc.nextDouble();
+    public double handleSquareRoot(double number) {
         double result = Math.sqrt(number);
-        System.out.println("Square root of " + number + " is: " + result);
         LOGGER.info("SQUARE_ROOT - Input:" + number + " - Output:" + result);
+        return result;
     }
 
-    public static void handleFactorial(Scanner sc) {
-        System.out.print("Enter the number: ");
-        int number = sc.nextInt(), i = 1;
+    public long handleFactorial(int number) {
+        int i = 1;
         long factorial = 1;
         while (i <= number) {
             factorial = factorial * i++;
         }
-        System.out.println("Factorial of " + number + " is: " + factorial);
         LOGGER.info("FACTORIAL - Input:" + number + " - Output:" + factorial);
+        return factorial;
     }
 
-    public static void handleLogarithm(Scanner sc) {
-        System.out.print("Enter the number: ");
-        double number = sc.nextDouble();
+    public double handleLogarithm(double number) {
         double result = Math.log(number);
-        System.out.println("Natural Logarithmic value of " + number + " is: " + result);
         LOGGER.info("LOGARITHM - Input:" + number + " - Output:" + result);
+        return result;
     }
 
-    public static void handlePower(Scanner sc) {
-        System.out.print("Enter the base number: ");
-        double number = sc.nextDouble();
-        System.out.print("Enter the power: ");
-        double power = sc.nextDouble();
+    public double handlePower(double number, double power) {
         double result = Math.pow(number, power);
-        System.out.println("Power function: " + number + "^" + power + " = " + result);
         LOGGER.info("POWER_FUNCTION - Input:" + number + "^" + power + " - Output:" + result);
+        return result;
     }
 
 }
